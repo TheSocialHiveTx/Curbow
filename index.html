@@ -76,44 +76,55 @@
 
   <!-- Hero Section with Carousel -->
   <section class="hero" id="home">
-    <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-carousel" id="heroCarousel" aria-label="Project showcase slideshow">
       <!-- Slide 1: Farmhouse Exterior -->
-      <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./hero/119886401_398189431579128_2660560117064681013_n.jpg');"></div>
+      <figure class="carousel-slide active" aria-hidden="false">
+        <img src="hero/119886401_398189431579128_2660560117064681013_n.jpg" alt="Modern white board-and-batten farmhouse custom build in Lufkin, TX" loading="eager">
+      </figure>
       <!-- Slide 2: Modern White Kitchen -->
-      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./hero/476088439_1063839458881519_3880425166836459207_n.jpg');"></div>
+      <figure class="carousel-slide" aria-hidden="true">
+        <img src="hero/476088439_1063839458881519_3880425166836459207_n.jpg" alt="Custom kitchen with wood island countertop, white cabinets, and bar seating" loading="lazy">
+      </figure>
       <!-- Slide 3: Master Bathroom -->
-      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./hero/122450205_431396351591769_6745859542400994273_n.jpg');"></div>
+      <figure class="carousel-slide" aria-hidden="true">
+        <img src="hero/122450205_431396351591769_6745859542400994273_n.jpg" alt="Luxury master bathroom with glass shower, tile walls, and wood vanity" loading="lazy">
+      </figure>
       <!-- Slide 4: Barndominium Porch -->
-      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('./hero/476160798_1063839422214856_8530064945292523786_n.jpg');"></div>
-    </div>
-    
-    <!-- Carousel Controls -->
-    <button class="carousel-control prev" id="carouselPrev" aria-label="Previous slide">‹</button>
-    <button class="carousel-control next" id="carouselNext" aria-label="Next slide">›</button>
-    
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators" id="carouselIndicators">
-      <span class="indicator active" data-slide="0"></span>
-      <span class="indicator" data-slide="1"></span>
-      <span class="indicator" data-slide="2"></span>
-      <span class="indicator" data-slide="3"></span>
+      <figure class="carousel-slide" aria-hidden="true">
+        <img src="hero/476160798_1063839422214856_8530064945292523786_n.jpg" alt="Contemporary barndominium wrap-around porch with tongue-and-groove wood ceiling" loading="lazy">
+      </figure>
     </div>
 
+    <!-- Gradient overlay (handled in CSS ::before, no inline styles needed) -->
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control prev" id="carouselPrev" aria-label="Previous slide">&#8249;</button>
+    <button class="carousel-control next" id="carouselNext" aria-label="Next slide">&#8250;</button>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators" id="carouselIndicators" role="tablist" aria-label="Slide navigation">
+      <span class="indicator active" data-slide="0" role="tab" aria-selected="true"  aria-label="Slide 1"></span>
+      <span class="indicator"        data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+      <span class="indicator"        data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+      <span class="indicator"        data-slide="3" role="tab" aria-selected="false" aria-label="Slide 4"></span>
+    </div>
+
+    <!-- Hero text content -->
     <div class="hero-container">
       <div class="hero-content">
-        <span class="hero-badge">General Contracting in Lufkin, TX</span>
-        <h1 class="hero-title">Building Your Dreams From the Ground Up</h1>
-        <p class="hero-subtitle">Specializing in premium custom home builds, high-end remodels, seamless additions, and professional roofing. We bring unmatched quality and local expertise to Lufkin and the surrounding East Texas areas.</p>
+        <span class="hero-badge">General Contracting · Lufkin, TX</span>
+        <h1 class="hero-title">Building Your Dreams<br class="hero-br"> From the Ground Up</h1>
+        <p class="hero-subtitle">Custom home builds, remodels, additions &amp; professional roofing — crafted with precision across East Texas.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary btn-lg">Get A Free Estimate</a>
-          <a href="#gallery" class="btn btn-secondary btn-lg">View Our Projects</a>
+          <a href="#gallery" class="btn btn-outline btn-lg">View Our Work</a>
         </div>
       </div>
     </div>
-    
-    <!-- Hero bottom wave/curve decorator -->
-    <div class="hero-curve">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+
+    <!-- Hero bottom wave/curve decorator (desktop only) -->
+    <div class="hero-curve" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
       </svg>
     </div>
