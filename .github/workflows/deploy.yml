@@ -24,6 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Show repo size and top files (diagnostic)
+        run: |
+          echo "---- Repository disk usage ----"
+          du -sh . || true
+          echo "---- Top files by size ----"
+          # list top 20 largest files to help debug artifact issues
+          find . -type f -printf "%s\t%p\n" | sort -nr | head -n 20 || true
+
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
