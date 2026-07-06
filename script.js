@@ -7,6 +7,71 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
+     0. Hero Image Carousel Logic
+     ========================================================================== */
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const indicators = document.querySelectorAll('.indicator');
+  
+  let currentSlide = 0;
+  let carouselInterval;
+  const slideIntervalTime = 5000;
+
+  function showSlide(index) {
+    if (slides.length === 0) return;
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+    
+    currentSlide = (index + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  function startCarousel() {
+    stopCarousel();
+    carouselInterval = setInterval(nextSlide, slideIntervalTime);
+  }
+
+  function stopCarousel() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+    }
+  }
+
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startCarousel();
+    });
+  }
+
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      showSlide(index);
+      startCarousel();
+    });
+  });
+
+  if (slides.length > 0) {
+    startCarousel();
+  }
+
+  /* ==========================================================================
      1. Navigation Menu Logic
      ========================================================================== */
   const navbar = document.getElementById('navbar');

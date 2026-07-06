@@ -24,7 +24,7 @@
   <meta property="twitter:image" content="hero/119886401_398189431579128_2660560117064681013_n.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="icon" type="image/png" href="logo/curbow_logo_nobg.png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,27 +41,7 @@
     <div class="nav-container">
       <a href="#home" class="nav-logo" id="navLogoLink" aria-label="Curbow Construction Home">
         <div class="logo-wrapper">
-          <!-- Inline SVG logo for maximum compatibility and performance -->
-          <svg viewBox="0 0 200 200" class="nav-logo-svg" aria-hidden="true">
-            <use href="logo.svg#textPathTop" fill="none"></use>
-            <use href="logo.svg#textPathBottom" fill="none"></use>
-            <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="4" fill="none" />
-            <circle cx="100" cy="100" r="84" stroke="currentColor" stroke-width="1.5" fill="none" />
-            <circle cx="100" cy="100" r="48" stroke="currentColor" stroke-width="1.5" fill="none" />
-            <line x1="16" y1="78" x2="184" y2="78" stroke="currentColor" stroke-width="3" />
-            <line x1="16" y1="122" x2="184" y2="122" stroke="currentColor" stroke-width="3" />
-            <!-- Curved text path references are inside the external logo.svg, 
-                 so for complete self-containment we use standard text elements in the inline copy -->
-            <path id="navTextPathTop" d="M 36,100 A 64,64 0 0,1 164,100" fill="none" />
-            <path id="navTextPathBottom" d="M 36,100 A 64,64 0 0,0 164,100" fill="none" />
-            <text font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="currentColor" letter-spacing="3.5">
-              <textPath href="#navTextPathTop" startOffset="50%" text-anchor="middle">CONSTRUCTION</textPath>
-            </text>
-            <text font-family="'Outfit', sans-serif" font-weight="800" font-size="11.5" fill="currentColor" letter-spacing="3">
-              <textPath href="#navTextPathBottom" startOffset="50%" text-anchor="middle">&amp; DEVELOPMENT</textPath>
-            </text>
-            <text x="100" y="112" font-family="'Outfit', serif" font-weight="900" font-size="34" fill="currentColor" text-anchor="middle" letter-spacing="1">CURBOW</text>
-          </svg>
+          <img src="logo/curbow_logo_nobg.png" alt="Curbow Construction logo" class="nav-logo-img">
         </div>
         <span class="nav-brand-name">CURBOW<br><small>CONSTRUCTION</small></span>
       </a>
@@ -94,9 +74,31 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Carousel -->
   <section class="hero" id="home">
-    <div class="hero-bg" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('hero/119886401_398189431579128_2660560117064681013_n.jpg');"></div>
+    <div class="hero-carousel" id="heroCarousel">
+      <!-- Slide 1: Farmhouse Exterior -->
+      <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('hero/119886401_398189431579128_2660560117064681013_n.jpg');"></div>
+      <!-- Slide 2: Modern White Kitchen -->
+      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('hero/476088439_1063839458881519_3880425166836459207_n.jpg');"></div>
+      <!-- Slide 3: Master Bathroom -->
+      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('hero/122450205_431396351591769_6745859542400994273_n.jpg');"></div>
+      <!-- Slide 4: Barndominium Porch -->
+      <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('hero/476160798_1063839422214856_8530064945292523786_n.jpg');"></div>
+    </div>
+    
+    <!-- Carousel Controls -->
+    <button class="carousel-control prev" id="carouselPrev" aria-label="Previous slide">‹</button>
+    <button class="carousel-control next" id="carouselNext" aria-label="Next slide">›</button>
+    
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators" id="carouselIndicators">
+      <span class="indicator active" data-slide="0"></span>
+      <span class="indicator" data-slide="1"></span>
+      <span class="indicator" data-slide="2"></span>
+      <span class="indicator" data-slide="3"></span>
+    </div>
+
     <div class="hero-container">
       <div class="hero-content">
         <span class="hero-badge">General Contracting in Lufkin, TX</span>
@@ -502,23 +504,7 @@
         <!-- Footer Column 1: Brand Info -->
         <div class="footer-col brand-col">
           <div class="footer-logo">
-            <svg viewBox="0 0 200 200" class="footer-logo-svg" aria-hidden="true">
-              <circle cx="100" cy="100" r="92" stroke="currentColor" stroke-width="4" fill="none" />
-              <circle cx="100" cy="100" r="84" stroke="currentColor" stroke-width="1.5" fill="none" />
-              <circle cx="100" cy="100" r="48" stroke="currentColor" stroke-width="1.5" fill="none" />
-              <line x1="16" y1="78" x2="184" y2="78" stroke="currentColor" stroke-width="3" />
-              <line x1="16" y1="122" x2="184" y2="122" stroke="currentColor" stroke-width="3" />
-              <path id="footerTextPathTop" d="M 36,100 A 64,64 0 0,1 164,100" fill="none" />
-              <path id="footerTextPathBottom" d="M 36,100 A 64,64 0 0,0 164,100" fill="none" />
-              <text font-family="'Outfit', sans-serif" font-weight="800" font-size="13" fill="currentColor" letter-spacing="3.5">
-                <textPath href="#footerTextPathTop" startOffset="50%" text-anchor="middle">CONSTRUCTION</textPath>
-              </text>
-              <text font-family="'Outfit', sans-serif" font-weight="800" font-size="11.5" fill="currentColor" letter-spacing="3">
-                <textPath href="#footerTextPathBottom" startOffset="50%" text-anchor="middle">&amp; DEVELOPMENT</textPath>
-              </text>
-              <text x="100" y="112" font-family="'Outfit', serif" font-weight="900" font-size="34" fill="currentColor" text-anchor="middle" letter-spacing="1">CURBOW</text>
-            </svg>
-            <span class="footer-brand-title">CURBOW CONSTRUCTION</span>
+            <img src="logo/curbow_logo_nobg.png" alt="Curbow Construction logo" class="footer-logo-img">
           </div>
           <p class="footer-about-text">A professional general contracting company specializing in premium construction services. Proudly serving the homeowners of Lufkin, Texas, and surrounding communities with honesty, integrity, and top-tier craftsmanship.</p>
         </div>

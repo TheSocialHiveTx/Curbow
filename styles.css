@@ -56,6 +56,9 @@ body {
   line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--light-color);
+  background-image: linear-gradient(rgba(252, 251, 250, 0.95), rgba(252, 251, 250, 0.95)), url('wood_texture_light.jpg');
+  background-repeat: repeat;
+  background-size: 320px 320px;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -107,6 +110,9 @@ ul {
 
 .alt-bg {
   background-color: var(--light-alt-color);
+  background-image: linear-gradient(rgba(244, 241, 235, 0.96), rgba(244, 241, 235, 0.96)), url('wood_texture_light.jpg');
+  background-repeat: repeat;
+  background-size: 320px 320px;
 }
 
 .text-center {
@@ -283,7 +289,7 @@ ul {
   background-color: rgba(252, 251, 250, 0.85); /* Glassmorphism background */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(196, 180, 150, 0.15);
+  border-bottom: 3px solid var(--accent-color); /* Wood accent trim */
   transition: var(--transition);
 }
 
@@ -331,10 +337,11 @@ ul {
   height: 44px;
 }
 
-.nav-logo-svg {
+.nav-logo-img {
   width: 100%;
   height: 100%;
-  color: var(--primary-color);
+  object-fit: contain;
+  display: block;
   transition: var(--transition);
 }
 
@@ -436,6 +443,145 @@ ul {
 }
 
 /* Mobile responsive header media query */
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
+  }
+
+  .section {
+    padding: 5.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .nav-container {
+    padding: 0.8rem 0;
+  }
+
+  .nav-actions {
+    gap: 0.75rem;
+  }
+
+  .btn-nav-phone {
+    display: none;
+  }
+
+  .logo-wrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-brand-name {
+    font-size: 0.95rem;
+  }
+
+  .nav-brand-name small {
+    font-size: 0.56rem;
+    letter-spacing: 1px;
+  }
+
+  .hero {
+    min-height: 72vh;
+    padding: 6rem 0 5.5rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .btn-lg {
+    padding: 0.95rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .about-visuals {
+    height: 320px;
+    margin-bottom: 2rem;
+  }
+
+  .experience-badge {
+    left: 4%;
+    bottom: 6%;
+    min-width: 104px;
+    padding: 0.9rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .gallery-filters {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    width: calc(50% - 0.25rem);
+    justify-content: center;
+  }
+
+  .contact-info-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4.75rem 0;
+  }
+
+  .hero {
+    min-height: 88vh;
+    padding: 6.5rem 0 7.25rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .about-visuals {
+    height: 280px;
+  }
+
+  .filter-btn {
+    width: 100%;
+  }
+}
+
 @media (min-width: 1024px) {
   .nav-menu {
     display: flex;
@@ -460,7 +606,7 @@ ul {
     top: 0;
     gap: 1.75rem;
     background-color: var(--white);
-    width: 280px;
+    width: min(85vw, 320px);
     height: 100vh;
     padding: 6rem 2rem 2rem;
     box-shadow: var(--shadow-lg);
@@ -503,7 +649,17 @@ ul {
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.carousel-slide {
   position: absolute;
   top: 0;
   left: 0;
@@ -511,9 +667,80 @@ ul {
   height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1.03);
-  animation: slowZoom 15s infinite alternate ease-in-out;
-  z-index: 1;
+  background-repeat: no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  animation: slowZoom 12s infinite alternate ease-in-out;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: 2.2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  opacity: 0;
+  user-select: none;
+}
+
+.hero:hover .carousel-control {
+  opacity: 0.7;
+}
+
+.carousel-control:hover {
+  opacity: 1 !important;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.carousel-control.prev {
+  left: 1.5rem;
+}
+
+.carousel-control.next {
+  right: 1.5rem;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 4;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.indicator.active {
+  background-color: var(--white);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 @keyframes slowZoom {
@@ -1465,9 +1692,10 @@ ul {
   color: var(--white);
 }
 
-.footer-logo-svg {
-  width: 42px;
-  height: 42px;
+.footer-logo-img {
+  width: 110px;
+  height: auto;
+  display: block;
 }
 
 .footer-brand-title {
